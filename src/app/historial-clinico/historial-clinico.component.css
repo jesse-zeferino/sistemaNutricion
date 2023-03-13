@@ -1,0 +1,62 @@
+.cuadroFormulario{
+    border: 1px solid #CCC;
+    box-sizing: border-box;
+    margin: 10px 16px 10px 16px;
+    border-radius: 5px;
+    /* width: 85%;
+    margin-left: 45px; */
+  }
+
+  .campoFormulario{
+    margin-right: 50px;
+    border-radius: 16px;
+    background-color: rgba(79,84,121,0.09);
+    color: #4F5479;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 8px 14px;
+    border: none;
+    width: 100%;
+    outline: none;
+  } 
+  .titulo{
+    margin: 0px;
+    color: #4D4D4D;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 21px;
+    color: #4F5479;
+  }
+
+  .botonesWS{
+    border-radius: 16px;
+    border: 1px solid #4F5479;
+    background: transparent;
+    color: #4F5479;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    padding: 8px 23px;
+  }
+  .selectIndividual{
+    color: #555555 !important;
+      min-height: 30px !important;
+      padding-left: 7px !important;
+      box-sizing: border-box !important;
+      /* width: 335px !important; */
+      border-radius: 16px !important;
+      border: 1px solid #4F5479 !important;
+      max-width: 300px;
+   }
+
+   .campoRequerido{
+  
+    position: absolute;
+    
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    right: 44px;
+    background-color: #DF285E;
+    border-radius: 50%;
+   }

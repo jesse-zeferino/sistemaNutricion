@@ -1,0 +1,251 @@
+.imputFormulario{
+  outline: none;
+  border-radius: 16px;
+  background-color:transparent;
+  color: #4F5479;
+  font-size: 12px;
+  line-height: 15px;
+  padding: 8px 14px;
+  border: none;
+  width: 90%;
+}
+.contFila {
+  color: #4D4D4D;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: left;
+
+  display: flex;
+}
+.filaTablaWS{
+  border-bottom: 1px solid #CCC;
+  border-left: 0px;
+}
+.imputFormulario, input::placeholder {
+color: #4F5479;
+font-size: 12px;
+ font-weight: 600;
+
+}
+.tablaWorkShift {
+  margin-left: 20px;
+  margin-right: 20px;
+  /* height: calc(100% - 110px); */
+}
+.botonWS {
+  margin: 0px;
+  border-radius: 17px;
+  background-color: #4F5479;
+  color: #FFF;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  padding: 8px 18px 8px 16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.totalElementos {
+  margin-top: 13px;
+  color: #9BA2AA;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+
+  .icono{
+   color: #4D4D4D;
+   font-size: large;
+   padding: 2px;
+  } 
+
+
+  .campoFormulario{
+    margin-right: 50px;
+    border-radius: 16px;
+    background-color: rgba(79,84,121,0.09);
+    color: #4F5479;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 8px 14px;
+    border: none;
+    width: 122px;
+    outline: none;
+  } 
+  .botonesWS{
+    border-radius: 16px;
+    border: 1px solid #4F5479;
+    background: transparent;
+    color: #4F5479;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    padding: 8px 23px;
+  }
+ .selectIndividual{
+  color: #555555 !important;
+    min-height: 30px !important;
+    padding-left: 7px !important;
+    box-sizing: border-box !important;
+    /* width: 335px !important; */
+    border-radius: 16px !important;
+    border: 1px solid #4F5479 !important;
+    max-width: 300px;
+ }
+ .cuadroFormulario{
+  border: 1px solid #CCC;
+  box-sizing: border-box;
+  padding-left: 5px;
+  border-radius: 5px;
+  
+}
+
+.contornoTabla{
+  border: 1px solid #CCC;
+  box-sizing: border-box;
+  padding: 3px;
+  border-radius: 5px;
+  
+}
+
+/* .lineaDivisora {
+    box-sizing: border-box;
+    border: 1px solid #CCC;
+    margin: 15px 20px 25px 20px;
+  }
+  .cuadroFormulario{
+    border: 1px solid #CCC;
+    box-sizing: border-box;
+    margin: 15px 20px 25px 20px;
+    border-radius: 5px;
+    width: 414px;
+    margin-left: 45px;
+  }
+  .imputFormulario{
+    outline: none;
+    border-radius: 16px;
+    background-color:transparent;
+    color: #4F5479;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 8px 14px;
+    border: none;
+    width: 90%;
+}
+.imputFormulario, input::placeholder {
+  color: #4F5479;
+  font-size: 12px;
+   font-weight: 600;
+
+}
+  .totalElementos {
+    margin-top: 13px;
+    color: #9BA2AA;
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .contFila {
+    color: #4D4D4D;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: left;
+
+    display: flex;
+  }
+  .quitarNoFound{
+    display: none !important;
+   }
+ 
+ 
+ 
+  .encabezadoTabla {
+    background-color: rgba(79, 84, 121, 0.09);
+    color: #4F5479;
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 11px;
+  }
+  .botonWS {
+    margin: 0px;
+    border-radius: 17px;
+    background-color: #4F5479;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    padding: 8px 18px 8px 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .fontFamilyWS {
+    font-family: 'Montserrat', sans-serif;
+  }
+  .botonesWSHeader {
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .titulo1 {
+    margin: 0px;
+    color: #4D4D4D;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 21px
+  }
+.tituloWS {
+    width: 30%;
+    height: auto;
+    display: flex;
+    align-items: center;
+  }
+  #mainContainerWS {
+    background: #F2F2F2;
+    overflow: auto;
+    height: 100vh;
+  }
+  .divHeaderWS {
+    margin-left: 20px;
+    margin-top: 25px;
+    margin-right: 20px;
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+
+  .filaTablaWS{
+    border-bottom: 1px solid #CCC;
+    border-left: 0px;
+  }
+
+  .icono{
+   color: #4D4D4D;
+   font-size: large;
+   padding: 2px;
+  }
+
+
+
+.botonesWS{
+  border-radius: 16px;
+  border: 1px solid #4F5479;
+  background: transparent;
+  color: #4F5479;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  padding: 8px 23px;
+}
+.campoFormulario{
+  margin-right: 50px;
+  border-radius: 16px;
+  background-color: rgba(79,84,121,0.09);
+  color: #4F5479;
+  font-size: 12px;
+  line-height: 15px;
+  padding: 8px 14px;
+  border: none;
+  width: 90%;
+  outline: none;
+} */

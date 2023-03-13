@@ -1,0 +1,452 @@
+.lineaDivisora {
+    box-sizing: border-box;
+    border: 1px solid #CCC;
+    margin: 15px 20px 25px 20px;
+  }
+  .imputFormulario{
+
+    border-radius: 16px;
+    background-color:transparent;
+    color: #4F5479;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 8px 14px;
+    border: none;
+    width: 90%;
+    outline: none;
+}
+.imputFormulario, input::placeholder {
+  color: #4F5479;
+  font-size: 12px;
+   font-weight: 600;
+ /* line-height: 15px;
+  margin-left: 32px; */
+}
+  .totalElementos {
+    margin-top: 13px;
+    color: #9BA2AA;
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .contFila {
+    color: #4D4D4D;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: left;
+
+    display: flex;
+  }
+ 
+  
+  .tablaWorkShift {
+    margin-left: 20px;
+    margin-right: 20px;
+    height: calc(100% - 110px);
+  }
+ 
+  .encabezadoTabla {
+    background-color: rgba(79, 84, 121, 0.09);
+    color: #4F5479;
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 11px;
+  }
+  .botonWS {
+    margin: 0px;
+    border-radius: 17px;
+    background-color: #4F5479;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    padding: 8px 18px 8px 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .fontFamilyWS {
+    font-family: 'Montserrat', sans-serif;
+  }
+  .botonesWSHeader {
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .titulo1 {
+    margin: 0px;
+    color: #4D4D4D;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 21px
+  }
+.tituloWS {
+    width: 30%;
+    height: auto;
+    display: flex;
+    align-items: center;
+  }
+  #mainContainerWS {
+    background: #F2F2F2;
+    overflow: auto;
+    height: 100vh;
+  }
+  .divHeaderWS {
+    margin-left: 20px;
+    margin-top: 25px;
+    margin-right: 20px;
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+
+  .filaTablaWS{
+    border-bottom: 1px solid #CCC;
+    border-left: 0px;
+  }
+
+  .icono{
+   color: #4D4D4D;
+   font-size: large;
+   padding: 2px;
+  }
+
+/*
+#mainContainer {
+    background: #F2F2F2;
+    overflow: auto;
+    height: calc(100vh - 39px);
+  }
+
+  #content {
+    margin-left: 27px;
+    margin-top: 27px;
+    margin-right: 24px;
+    background: #fff;
+
+    border-radius: 6px;
+    height: calc(100vh - 124px);
+  }
+
+  .formato {
+    height: 100%;
+    margin-left: 0;
+    width: 100%;
+    padding: 18px 19px 18px 20px;
+
+  }
+
+  #container-formatos {
+    height: 100%;
+    padding: 0;
+  }
+
+  .div-button-absolute {
+    position: absolute;
+    right: 273px;
+    top: 3px;
+    z-index: 3;
+  }
+
+  .label-button-relative {
+    position: relative;
+  }
+
+  .label-button-relative i.ticket-icon-cerrar_cancel_gr {
+    position: absolute;
+    top: 9px;
+    left: 6px;
+    font-size: 15px;
+    transform: rotate(45deg);
+    color: #fff;
+  }
+
+  .button-add-format {
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    padding-left: 15px;
+    height: 31.17px;
+    width: 156px;
+    border-radius: 17px;
+    background-color: #4F5479;
+  }
+
+  .ajustes-generales i.fa.fa-angle-down {
+    position: absolute;
+    right: 23px;
+    top: 6px;
+    font-size: 16px;
+    z-index: 100;
+  }
+
+  .row-formatos-absolute {
+    position: absolute;
+    width: 100%;
+    top: 23px;
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+
+  .th{
+    height: 11px;
+    width: 44px;
+    color: #4F5479;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 11px;
+  }
+
+  .botonAgregar{
+    height: 15px;
+    width: 100px;
+    color: #FFF;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 15px;
+  }
+
+  .tituloHeader{
+    height: 21px;
+    width: 83px;
+    color: #4D4D4D;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 21px;
+  }
+
+  .bordeInferior{
+    box-sizing: border-box;
+    height: 13px;
+    width: 1153px;
+    border: 1px solid #CCC;
+  }
+
+  .iconHeaders{
+      display: inline;
+  }
+
+
+  tbody::-webkit-scrollbar {
+    width: 12px;
+  }
+
+
+  #mainContainer tbody::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+
+  #mainContainer tbody::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background: lightgrey;
+  }
+
+  #mainContainer tbody::-webkit-scrollbar-thumb:window-inactive {
+    background: lightgrey;
+  }
+
+
+.new-user-modal {
+    width: 728px;
+    height: 783px;
+}
+.bacground-color-azul{
+    background: #4F5479;
+}
+.color-azul-modal{
+    color: #4F5479;
+}
+.color-negro-modal{
+    color: #333;
+}
+.button-modal-user {
+    height: 31px;
+    width: 96px;
+    margin-right: 15px;
+    border-radius: 16px;
+    border: 1px solid #4F5479;
+    color: #444;
+    font-size: 11px;
+    font-weight: 600;
+    background-color: white;
+}
+.lado-izquiero{
+
+    width: 31%;
+
+    padding-right: 30px;
+    justify-content: flex-end;
+}
+.lado-derecho {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 40px;
+    width:calc(100% - 190px);
+
+}
+.label-form-user{
+    color: #4F5479;
+    font-size: 11px;
+    font-weight: 600 !important;
+    text-align: right;
+    line-height: 13px;
+}
+.input-form-user{
+  color: #4F5479;
+  font-size: 12px;
+  line-height: 15px;
+  border-radius: 16px !important;
+  border: none;
+  background-color: rgba(79,84,121,0.09);
+  font-family: Montserrat;
+}
+.selec-form-user{
+  background: transparent;
+  width: 362.77px;
+  border-radius: 16px;
+  border: 1px solid #4F5479;
+}
+.sub-modal-user{
+  color: #333;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  width: 100%;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #CCC;
+}
+
+
+.gps-tracking-checkbox {
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.gps-tracking-checkbox > input {
+  display: none;
+}
+
+.gps-tracking-checkbox > input ~ span {
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-width: 2px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.border-blue {
+  border: 1px solid #2d304c;
+}
+
+span .border-blue {
+  border: 1px solid #2d304c;
+}
+
+.gps-tracking-checkbox > input:checked ~ span:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #51bb82;
+  border: 1px solid #50557a;
+  border-radius: 50%;
+}
+.hideElement{
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contFila2 {
+  padding-left: 0px !important;
+  padding-right: 5px !important;
+}
+
+
+.columnaAcciones {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.selecGroup{
+  border: 1px solid #4F5479;
+  height: 30px;
+  border-radius: 16px !important;
+  color: #FFF;
+  font-size: 12px;
+  font-weight: 500;
+  background: transparent;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  width: 65%;
+}
+.sinBorde{
+  border: none;
+}
+
+.disableNgselec{
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.bloquearInputs{
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+
+
+.fontFamilyWS {
+    font-family: 'Montserrat', sans-serif;
+} */

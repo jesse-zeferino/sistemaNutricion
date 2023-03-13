@@ -1,0 +1,36 @@
+
+
+<div  class="fontFamilyWS">
+    <div id="encabezado">
+        <div id="titulosModal">
+            <div class="titulo1">
+                {{'Agregar dieta'}}
+            </div>
+        </div>
+        <div id="botonesPrincipales">
+            
+            <button class="botonesWS"  (click)="guardarTarea()"> {{'Guardar'}}</button>
+            <button class="botonesWS" style="margin-left:13px;" (click)="cerrarModal()"> {{'Cancelar'}}
+            </button>
+        </div>
+    </div>
+    <div class="divisor100" ></div>
+    <div >
+        <form  (submit)="guardarTarea()">
+             <div style="margin-left: 21px;">
+                <label class="labelFormulario">{{'Paciente:'}}</label>
+                <ng-select class="selectCategory" [ngModelOptions]="{standalone: true}"  [notFoundText]="'Sin datos'"
+                    [clearAllText]="'Clear'" [items]="categoriasLista" 
+                    [(ngModel)]="categoria" bindLabel="categoriaNombre" [placeholder]="'Seleccionar'"
+                     ></ng-select>
+            </div>
+            
+            
+            <br>
+
+        </form>
+    </div>
+</div>
+
+
+

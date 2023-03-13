@@ -1,0 +1,309 @@
+<app-navbar></app-navbar>
+
+<div style="padding-left: 100px;" id="mainContainerWS" class="fontFamilyWS">
+  <div id="contentSW">
+    <!--encabezado-->
+    <div class="divHeaderWS">
+      <div class="tituloWS">
+        <!--titulo-->
+        <label class="titulo1">{{'Dietas' }}</label>
+      </div>
+      <div class="botonesWSHeader">
+        <div>
+          <label class="botonWS" >
+              <i style="margin-right: 5px;" class="fas fa-plus"></i>
+              <span class="ButtonAgregarCruds"> Crear dieta semanal </span>
+          </label>
+      </div>
+
+      </div>
+    </div>
+    <!--divisor-->
+    <div class="lineaDivisora">
+
+    </div>
+
+    <!--tabla-->
+    <div style="height: calc(100vh - 255px)" id="contTablaUser">
+      <div style="padding: 1px; margin-left: 10px;">
+        <label class="labelFormulario">{{ "Paciente:" }}</label>
+        <ng-select class="selectIndividual" [ngModelOptions]="{ standalone: true }" [notFoundText]="'Sin datos'"
+          [clearAllText]="'Clear'" [items]="pacientes" [(ngModel)]="paciente" bindLabel="categoriaNombre"
+          [placeholder]="'Seleccionar'"></ng-select>
+      </div>
+      <br>
+      <div nz-row>
+        
+        <div nz-col nzSpan="8">
+        
+          
+          
+            <div class="cuadroFormulario" >
+              
+            <div style="padding: 1px;">
+              <label class="labelFormulario">{{ "Tipo de comida:" }}</label>
+              <ng-select class="selectIndividual" [ngModelOptions]="{ standalone: true }" [notFoundText]="'Sin datos'"
+                [clearAllText]="'Clear'" [items]="tiposComida" [(ngModel)]="tipoComida" bindLabel="categoriaNombre"
+                [placeholder]="'Seleccionar'"></ng-select>
+            </div>
+            <div style="padding: 1px;">
+              <label class="labelFormulario">{{ "Categoria:" }}</label>
+              <ng-select class="selectIndividual" [ngModelOptions]="{ standalone: true }" [notFoundText]="'Sin datos'"
+                [clearAllText]="'Clear'" [items]="categoriasComida" [(ngModel)]="categoriaComida"
+                bindLabel="categoriaNombre" [placeholder]="'Seleccionar'"></ng-select>
+            </div>
+            <div style="padding: 1px;">
+              <label class="labelFormulario">{{ "Alimento:" }}</label>
+              <ng-select class="selectIndividual" [ngModelOptions]="{ standalone: true }" [notFoundText]="'Sin datos'"
+                [clearAllText]="'Clear'" [items]="alimentos" [(ngModel)]="alimento" bindLabel="categoriaNombre"
+                [placeholder]="'Seleccionar'"></ng-select>
+            </div>
+            <div style="padding: 1px;">
+              <label class="labelFormulario">{{ "Porcion:" }}</label>
+              <div style="display: flex; width: 227px">
+                <input [(ngModel)]="porcion" type="text" class="campoFormulario" />
+                
+              </div>
+            </div>
+            <div style="padding: 1px;">
+             <br>
+              <div style="display: flex; width: 227px">
+                <button (click)="agregardieta()" class="botonesWS">{{ "Agregar" }}</button>
+              </div>
+            </div>
+            <br />
+          </div>
+
+        </div>
+        <div nz-col nzSpan="16">
+
+          <div id="contTablaUser" class="contornoTabla">
+            <nz-table #usersTable [nzData]="nzdata" [nzShowPagination]="false" [nzPageSize]="6"
+              [nzScroll]="{ y: '295px' }" class="tablaWorkShift">
+
+              <thead nzSingleSort>
+                <tr>
+
+                  <th class="encabezadoTabla" nzSortKey="name">{{'Tipo comida' | uppercase}}</th>
+                  <th class="encabezadoTabla" nzSortKey="username">{{'categoria comida' | uppercase}}</th>
+                  <th class="encabezadoTabla" nzSortKey="email">{{'alimento' | uppercase}}</th>
+                  <th class="encabezadoTabla" nzSortKey="profileName">{{'porcion' | uppercase}}</th>
+
+                  <th nzWidth="15%" class="encabezadoTabla" nzSortKey="profileName">{{'Acciones' | uppercase}}</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of dietas" class="filaTabla">
+                  <td class="filaTablaWS">
+                    <span class="contFila">{{data.tipoComida }}</span>
+                  </td>
+                  <td class="filaTablaWS">
+                    <span class="contFila">{{data.categoriaComida }}</span>
+                  </td>
+                  <td class="filaTablaWS">
+                    <span class="contFila">{{data.alimento }}</span>
+                  </td>
+                  <td class="filaTablaWS">
+                    <span class="contFila">{{data.porcion }}</span>
+                  </td>
+
+                  <td class="filaTablaWS">
+                    <div class="contFila">
+                      <!-- <i nz-tooltip [nzTooltipTitle]="'Agregar nota'" class="fas fa-notes-medical icono"></i>
+                      <i nz-tooltip [nzTooltipTitle]="'Ver expediente'" class="fas fa-eye icono"></i>
+                      <i nz-tooltip [nzTooltipTitle]="'Descargar Expediente'" class="fas fa-file-pdf icono"></i> -->
+                      <a nz-popconfirm nzPopconfirmTitle="¿Está seguro que quiere borrar esta comida?"
+                        nzPopconfirmPlacement="bottom">
+                        <i nz-tooltip [nzTooltipTitle]="'Eliminar'" class="fas fa-trash icono"></i>
+                      </a>
+                    </div>
+
+
+
+                  </td>
+
+                </tr>
+
+
+
+
+              </tbody>
+            </nz-table>
+            <br />
+            <button *ngIf="dietas.length>0" class="botonesWS" (click)="guardarDieta()">
+              {{ "Guardar" }}
+            </button>
+          </div>
+
+          <div style="padding-left: 25px;position: absolute;">
+            <label class="totalElementos" *ngIf="dietas.length>1"> {{dietas.length}} Comidas</label>
+            <label class="totalElementos" *ngIf="dietas.length==1"> 1 Comida</label>
+        </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+
+
+</div>
+
+
+<!-- <app-navbar></app-navbar>
+
+<div style="padding-left: 100px" id="mainContainerWS" class="fontFamilyWS">
+  <div id="contentSW2">
+    <div class="divHeaderWS">
+      <div class="tituloWS">
+        <label class="titulo1">{{ "Dietas" }}</label>
+      </div>
+      <div class="botonesWSHeader"></div>
+      </div>
+
+    <div class="lineaDivisora"></div>
+
+   
+    <div id="contTablaUser">
+      <div style="margin-left: 21px">
+        <label class="labelFormulario">{{ "Paciente:" }}</label>
+        <ng-select
+          class="selectIndividual"
+          [ngModelOptions]="{ standalone: true }"
+          [notFoundText]="'Sin datos'"
+          
+          [clearAllText]="'Clear'"
+          [items]="pacientes"
+          [(ngModel)]="paciente"
+          bindLabel="categoriaNombre"
+          [placeholder]="'Seleccionar'"
+        ></ng-select>
+      </div>
+
+      <div class="cuadroFormulario">
+        <div style="margin-left: 21px">
+          <label class="labelFormulario">{{ "Tipo de comida:" }}</label>
+          <ng-select
+            class="selectCategory"
+            [ngModelOptions]="{ standalone: true }"
+            [notFoundText]="'Sin datos'"
+            [clearAllText]="'Clear'"
+            [items]="tiposComida"
+            [(ngModel)]="tipoComida"
+            bindLabel="categoriaNombre"
+            [placeholder]="'Seleccionar'"
+          ></ng-select>
+        </div>
+        <div style="margin-left: 21px">
+          <label class="labelFormulario">{{ "Categoria:" }}</label>
+          <ng-select
+            class="selectCategory"
+            [ngModelOptions]="{ standalone: true }"
+            [notFoundText]="'Sin datos'"
+            [clearAllText]="'Clear'"
+            [items]="categoriasComida"
+            [(ngModel)]="categoriaComida"
+            bindLabel="categoriaNombre"
+            [placeholder]="'Seleccionar'"
+          ></ng-select>
+        </div>
+        <div style="margin-left: 21px">
+          <label class="labelFormulario">{{ "Alimento:" }}</label>
+          <ng-select
+            class="selectCategory"
+            [ngModelOptions]="{ standalone: true }"
+            [notFoundText]="'Sin datos'"
+            [clearAllText]="'Clear'"
+            [items]="paalimentos"
+            [(ngModel)]="alimento"
+            bindLabel="categoriaNombre"
+            [placeholder]="'Seleccionar'"
+          ></ng-select>
+        </div>
+        <div style="margin-left: 21px">
+          <label class="labelFormulario">{{ "Porcion:" }}</label>
+          <div style="display: flex; width: 227px">
+            <input [(ngModel)]="porcion" type="number" class="campoFormulario" />
+            <button (click)="agregardieta()" class="botonesWS">{{ "Agregar" }}</button>
+          </div>
+        </div>
+        <br />
+      </div>
+
+      <nz-table  [nzData]="nzdata" [nzShowPagination]="false"
+      [nzLoading]="loading"
+      nzNoResult=""
+      
+      id="tabla"
+                 #usersTable class="tablaWorkShift">
+        <thead (nzSortChange)="sort($event)" nzSingleSort nzSingleSort>
+          <tr>
+            <th nzWidth="27%" class="encabezadoTabla" nzSortKey="name">
+              {{ "Tipo de comida" | uppercase }}
+            </th>
+            <th nzWidth="27%" class="encabezadoTabla" nzSortKey="username">
+              {{ "Categoria" | uppercase }}
+            </th>
+            <th nzWidth="27%" class="encabezadoTabla" nzSortKey="email">
+              {{ "Alimento" | uppercase }}
+            </th>
+            <th nzWidth="10%" class="encabezadoTabla" nzSortKey="profileName">
+              {{ "Porcion" | uppercase }}
+            </th>
+            <th nzWidth="30%" class="encabezadoTabla" nzSortKey="profileName">
+              {{ "Acciones" | uppercase }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of dietas" class="filaTabla">
+            <td class="filaTablaWS">
+              <span class="contFila">{{data.tipoComida }}</span>
+            </td>
+            <td class="filaTablaWS">
+              <span class="contFila">{{data.categoriaComida }}</span>
+            </td>
+            <td class="filaTablaWS">
+              <span class="contFila">{{data.alimento }}</span>
+            </td>
+            <td class="filaTablaWS">
+              <span class="contFila">{{data.porcion }}</span>
+            </td>
+            <td class="filaTablaWS">
+              <div class="contFila">
+                <i
+                  nz-tooltip
+                  [nzTooltipTitle]="'Agregar nota'"
+                  class="fas fa-notes-medical icono"
+                ></i>
+                <i
+                  nz-tooltip
+                  [nzTooltipTitle]="'Ver expediente'"
+                  class="fas fa-eye icono"
+                ></i>
+                <i
+                  nz-tooltip
+                  [nzTooltipTitle]="'Descargar Expediente'"
+                  class="fas fa-file-pdf icono"
+                ></i>
+                <i  nz-tooltip
+                [nzTooltipTitle]="'Eliminar'" class="fas fa-trash icono"></i>
+              </div>
+            </td>
+          </tr>
+
+          <br />
+          <button *ngIf="dietas.length>0" class="botonesWS" (click)="guardarDieta()">
+            {{ "Guardar" }}
+          </button>
+         
+        </tbody>
+      </nz-table>
+    </div>
+  </div>
+</div>
+ -->

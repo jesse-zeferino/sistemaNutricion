@@ -1,0 +1,115 @@
+<app-navbar></app-navbar>
+
+<div style="padding-left: 100px;" id="mainContainerWS" class="fontFamilyWS">
+    <div id="contentSW">
+        <!--encabezado-->
+        <div class="divHeaderWS">
+            <div class="tituloWS">
+                <!--titulo-->
+                <label class="titulo1">{{'Alimentos' }}</label>
+            </div>
+            <div class="botonesWSHeader">
+               
+                <!-- <div>
+                    <label class="botonWS" >
+                        <i style="margin-right: 5px;" class="fas fa-plus"></i>
+                        <span class="ButtonAgregarCruds"> Agregar paciente </span>
+                    </label>
+                </div> -->
+                <div>
+                    <label style="  margin-left: 17px;
+                    border-radius: 16px;
+                    background-color: rgba(79, 84, 121, 0.09);
+                    display: flex;
+                    flex-flow: row;
+                    align-items: center;
+                    margin-bottom: 0px; width: 166px;">
+                        <i style="margin-left: 8px;" class="fas fa-search"></i>
+                        <input class="imputFormulario" placeholder="Buscar alimento">
+                      
+                    </label>
+                </div>
+
+            </div>
+        </div>
+        <!--divisor-->
+        <div class="lineaDivisora">
+
+        </div>
+        <div style="margin-left: 21px">
+            <label class="labelFormulario">{{ "Alimento:" }}</label>
+            <ng-select
+              class="selectCategory"
+              
+              [notFoundText]="'Sin datos'"
+              
+              [clearAllText]="'Clear'"
+              
+              
+              bindLabel="categoriaNombre"
+              [placeholder]="'Seleccionar'"
+            ></ng-select>
+          </div>
+     
+        <br>
+        <div style="height: calc(100vh - 255px)" id="contTablaUser">
+        <nz-table #usersTable
+         class="tablaWorkShift">
+                  
+            <thead   nzSingleSort>
+            <tr>
+               
+                <th nzWidth="27%" class="encabezadoTabla"  nzSortKey="name">{{'Nombre Alimento' | uppercase}}</th>
+                <th nzWidth="27%" class="encabezadoTabla"  nzSortKey="username">{{'grasa' | uppercase}}</th>
+                <th nzWidth="27%" class="encabezadoTabla"  nzSortKey="email">{{'proteina' | uppercase}}</th>
+                <th nzWidth="10%" class="encabezadoTabla"  nzSortKey="profileName">{{'sodio' | uppercase}}</th>
+                <th nzWidth="30%" class="encabezadoTabla"  nzSortKey="profileName">{{'hierro' | uppercase}}</th>
+               
+            </tr>
+            </thead>
+            <tbody >
+            <tr  class="filaTabla" >
+                <td class="filaTablaWS">
+                    <span class="contFila">Jesse Zeferino Rodriguez</span>
+                </td>
+                <td class="filaTablaWS">
+                    <span class="contFila">E-568</span>
+                </td>
+                <td class="filaTablaWS">
+                    <span class="contFila">jesse.xd.jz@gmail.com</span>
+                </td>
+                <td class="filaTablaWS">
+                    <span class="contFila">7341125677</span>
+                </td>
+                <td class="filaTablaWS">
+                    <div  class="contFila">
+                        <i (click)="agregarNota()" nz-tooltip [nzTooltipTitle]="'Agregar nota'"class="fas fa-notes-medical icono"></i>
+                        <i nz-tooltip [nzTooltipTitle]="'Ver expediente'" class="fas fa-eye icono"></i>
+                        <i nz-tooltip [nzTooltipTitle]="'Descargar Expediente'" class="fas fa-file-pdf icono"></i>
+                    </div>
+                    
+                    
+                    
+                </td>
+                
+            </tr>
+           
+            
+            
+            
+            </tbody>
+        </nz-table>
+        </div>
+
+        <div>
+
+        </div>
+
+    </div>
+
+
+    <div style="padding-left: 25px;position: absolute;">
+        <label class="totalElementos"> 4654 Usuarios</label>
+    </div>
+
+</div>

@@ -1,0 +1,127 @@
+<app-navbar></app-navbar>
+
+<div style="padding-left: 100px;" id="mainContainerWS" class="fontFamilyWS">
+    
+    <div id="contentSW">
+        
+        <div class="divHeaderWS">
+            <div class="tituloWS">
+               
+                <label class="titulo1">{{'Pacientes' }}</label>
+            </div>
+            <div class="botonesWSHeader">
+                <!--botones y busqueda-->
+                <div>
+                    <label  class="botonWS" >
+                        <i style="margin-right: 5px;" class="fas fa-plus"></i>
+                        <span class="ButtonAgregarCruds"> Agregar paciente </span>
+                    </label>
+                </div>
+                <div>
+                    <label style="  margin-left: 17px;
+                    border-radius: 16px;
+                    background-color: rgba(79, 84, 121, 0.09);
+                    display: flex;
+                    flex-flow: row;
+                    align-items: center;
+                    margin-bottom: 0px; width: 166px;">
+                        <i style="margin-left: 8px;" class="fas fa-search"></i>
+                        <input type="number" class="imputFormulario"
+                        (keyup)="keyUpSearchFilter($event)"
+                        [(ngModel)]="buscarPacienteId"
+                         placeholder="Buscar expediente">
+                      
+                    </label>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="lineaDivisora">
+
+        </div>
+
+       
+        <div  id="contTablaUser">
+         <div *ngIf="loadingBuscar" class="loadingBuscar">
+            <nz-spin nzSimple [nzSize]="'large'" nzTip="Buscando paciente..."></nz-spin>
+         </div>
+        <nz-table *ngIf="!loadingBuscar" #usersTable
+        [nzData]="nzdata"
+        [nzShowPagination]="false"
+        [nzLoading]="loading"
+        [nzPageSize]="6"
+        [nzScroll]="{ y: '400px' }"
+         class="tablaWorkShift">
+                  
+            <thead   nzSingleSort>
+            <tr>
+               
+                <th  class="encabezadoTabla"  nzSortKey="name">{{'Nombre' | uppercase}}</th>
+                <th  class="encabezadoTabla"  nzSortKey="username">{{'No.Expediente' | uppercase}}</th>
+                <th  class="encabezadoTabla"  nzSortKey="email">{{'edad' | uppercase}}</th>
+                <th  class="encabezadoTabla"  nzSortKey="profileName">{{'genero' | uppercase}}</th>
+                <th  class="encabezadoTabla"  nzSortKey="email">{{'ocupacion' | uppercase}}</th>
+                <th nzWidth="10%" class="encabezadoTabla"  nzSortKey="profileName">{{'Acciones' | uppercase}}</th>
+               
+            </tr>
+            </thead>
+            <tbody >
+            <tr *ngFor="let data of pacientes" class="filaTabla" >
+                <td class="filaTablaWS">
+                    <span class="contFila">{{data.nombreCompleto }}</span>
+                </td>
+                <td class="filaTablaWS">
+                    <span class="contFila">E-{{data.id }}</span>
+                </td>
+                <td class="filaTablaWS">
+                    <span class="contFila">{{data.fechaNacimiento | edad }}</span>
+                </td>
+                <td class="filaTablaWS">
+                    <span class="contFila">{{data.genero }}</span>
+                </td>
+                <td class="filaTablaWS">
+                    <span class="contFila">{{data.ocupacion }}</span>
+                </td>
+                <td class="filaTablaWS">
+                    <div  class="contFila">
+                        <i (click)="agregarNota()" nz-tooltip [nzTooltipTitle]="'Agregar nota'"class="fas fa-notes-medical icono"></i>
+                        <i nz-tooltip [nzTooltipTitle]="'Ver expediente'" class="fas fa-eye icono"></i>
+                        <i nz-tooltip [nzTooltipTitle]="'Descargar Expediente'" class="fas fa-file-pdf icono"></i>
+                        <a
+                        nz-popconfirm
+                        nzPopconfirmTitle="¿Está seguro que quiere borrar este paciente?"
+                        nzPopconfirmPlacement="bottom"
+                        (nzOnConfirm)="eliminarPaciente(data.id)"
+                      >
+                      <i  nz-tooltip
+                      [nzTooltipTitle]="'Eliminar'" class="fas fa-trash icono"></i>
+                      </a>
+                    </div>
+                    
+                  
+                    
+                </td>
+                
+            </tr>
+           
+            
+            
+            
+            </tbody>
+        </nz-table>
+        </div>
+
+        <div>
+
+        </div>
+
+    </div>
+
+
+    <div style="padding-left: 25px;position: absolute;">
+        <label class="totalElementos" *ngIf="pacientes.length>1"> {{pacientes.length}} Pacientes</label>
+        <label class="totalElementos" *ngIf="pacientes.length==1"> 1 Paciente</label>
+    </div>
+
+</div>

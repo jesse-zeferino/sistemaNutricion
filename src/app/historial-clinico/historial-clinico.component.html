@@ -1,0 +1,187 @@
+<app-navbar></app-navbar>
+
+<div style="padding-left: 100px;" id="mainContainerWS" class="fontFamilyWS">
+    <div id="contentSW">
+        <!--encabezado-->
+        <div class="divHeaderWS">
+            <div class="tituloWS">
+                <!--titulo-->
+                <label class="titulo1">{{'Historial Clinico' }}</label>
+            </div>
+            <div class="botonesWSHeader">
+               
+
+            </div>
+        </div>
+        
+        <div class="lineaDivisora"></div>
+
+        
+
+
+        <div style="height: calc(100vh - 255px)" id="contTablaUser">
+          <div *ngIf="loading" class="loadingBuscar">
+            <nz-spin nzSimple [nzSize]="'large'" nzTip="{{textoLoading}}"></nz-spin>
+         </div>
+            <div >
+              <div class="cuadroFormulario">
+                <label class="titulo"> Datos personales</label>
+
+                <div nz-row>
+                    <div nz-col nzSpan="6">
+                        <div style="padding: 1px;">
+                            <label class="labelFormulario">{{ "Fecha actual:" }}</label>
+                            <div style="display: flex;">
+                                <input [(ngModel)]="fechaPerseada" type="text" class="campoFormulario" />
+                              </div>
+                          </div>
+                    </div>
+                    <div nz-col nzSpan="12"><label class="labelFormulario">{{ "Nombre completo:" }}</label>
+                        <div style="display: flex;">
+                          <input clear [(ngModel)]="datosPaciente.nombreCompleto"  type="text" class="campoFormulario" />
+                          
+                        </div></div>
+                    <div nz-col nzSpan="6"><label class="labelFormulario">{{ "Fecha de nacimiento:" }}</label>
+                        <div style="display: flex;">
+                            <input type="date" 
+                            placeholder="Fecha"
+                            
+                            [(ngModel)]="datosPaciente.fechaNacimiento"
+                            class=" campoFormulario"
+                            bsDatepicker>
+                          
+                        </div></div>
+                    
+                  </div>
+                  <div nz-row>
+                    <div nz-col nzSpan="6">
+                        <div style="padding: 1px;">
+                            <label class="labelFormulario">{{ "Estado civil:" }}</label>
+                            <div style="display: flex;">
+                             
+                              <ng-select class="selectIndividual" [ngModelOptions]="{ standalone: true }" [notFoundText]="'Sin datos'"
+                [clearAllText]="'Clear'" [items]="estadoCivil" [(ngModel)]="datosPaciente.estadoCivil" bindLabel="categoriaNombre"
+                [placeholder]="'Seleccionar'"></ng-select>
+                            </div>
+                          </div>
+
+                    </div>
+                    <div nz-col nzSpan="6"><div style="padding: 1px;">
+                        <label class="labelFormulario">{{ "Genero:" }}</label>
+                        
+                        <div style="display: flex;">
+                          <!-- <input [(ngModel)]="datosPaciente.genero" type="text" class="campoFormulario" /> -->
+                          <ng-select class="selectIndividual" [ngModelOptions]="{ standalone: true }" [notFoundText]="'Sin datos'"
+                          [clearAllText]="'Clear'" [items]="genero" [(ngModel)]="datosPaciente.genero" bindLabel="categoriaNombre"
+                          [placeholder]="'Seleccionar'"></ng-select>
+                          
+                        </div>
+                      </div></div>
+                    <div nz-col nzSpan="6"> 
+                        <div style="padding: 1px;">
+                            <label class="labelFormulario">{{ "Ocupacion:" }}</label>
+                            <div style="display: flex;">
+                              <input [(ngModel)]="datosPaciente.ocupacion" type="text" class="campoFormulario" />
+                              
+                            </div>
+                          </div>
+                    </div>
+                    <div nz-col nzSpan="6">
+                        
+                        <div style="padding: 1px;">
+                            <label class="labelFormulario">{{ "Telefono:" }}</label>
+                            <div style="display: flex;">
+                              <input [(ngModel)]="datosPaciente.telefono" type="text" class="campoFormulario" />
+                              
+                            </div>
+                          </div> 
+                    </div>
+                  </div>
+                  <div nz-row>
+                    <div nz-col nzSpan="12"> <div style="padding: 1px;">
+                        <label class="labelFormulario">{{ "Direccion:" }}</label>
+                       
+                        <div style="display: flex;">
+                        
+                          <input required [(ngModel)]="datosPaciente.direccion" type="text" class="campoFormulario" />
+                           
+                            
+                            
+                        </div>
+                      </div></div>
+                    <div nz-col nzSpan="12"> 
+                        <div style="padding: 1px;">
+                        <label class="labelFormulario">{{ "Motivo consulta:" }}</label>
+                        
+                        <div style="display: flex;">
+                          
+                            <input [(ngModel)]="datosPaciente.motivoConsulta" type="text" class="campoFormulario" />
+                       
+                          
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <div style="display: flex; width: 227px">
+                      <button (click)="agregarPaciente()" class="botonesWS">{{ "Agregar" }}</button>
+                    </div>
+                  </div>
+                
+            </div>
+            <div class="cuadroFormulario">
+                <label class="titulo">Antecedentes familiares</label>
+                <div nz-row>
+                    <div nz-col nzSpan="6">
+                        <div style="padding: 1px;">
+                        <label class="labelFormulario">{{ "Obesidad:" }}</label><input [(ngModel)]="antecedenFam.obecidad" type="checkbox"  />
+                     </div>
+                    </div>
+                    <div nz-col nzSpan="6"> <div style="padding: 1px;">
+                        <label class="labelFormulario">{{ "Diabetes:" }}</label><input [(ngModel)]="antecedenFam.diabetes" type="checkbox"  />
+                     </div></div>
+                    <div nz-col nzSpan="6">
+                        <div style="padding: 1px;">
+                            <label class="labelFormulario">{{ "HTA:" }}</label><input [(ngModel)]="antecedenFam.hta" type="checkbox"  />
+                         </div>
+                    </div>
+                    <div nz-col nzSpan="6">
+                        <div style="padding: 1px;">
+                            <label class="labelFormulario">{{ "Corazon:" }}</label><input [(ngModel)]="antecedenFam.corazon" type="checkbox"  />
+                         </div>
+                    </div>
+                  </div>
+                  <div nz-row>
+                    <div nz-col nzSpan="6">
+                        <div style="padding: 1px;">
+                        <label class="labelFormulario">{{ "Renales:" }}</label><input [(ngModel)]="antecedenFam.renales" type="checkbox"  />
+                     </div>
+                    </div>
+                    <div nz-col nzSpan="6"> <div style="padding: 1px;">
+                        <label class="labelFormulario">{{ "Cancer:" }}</label><input [(ngModel)]="antecedenFam.cancer" type="checkbox"  />
+                     </div></div>
+                    <div nz-col nzSpan="6">
+                        <div style="padding: 1px;">
+                            <label class="labelFormulario">{{ "Hipercolesterolemia-trigliceridemia:" }}</label><input [(ngModel)]="antecedenFam.ht" type="checkbox"  />
+                         </div>
+                    </div>
+                    <div nz-col nzSpan="6">
+                        <div style="padding: 1px;">
+                            <label class="labelFormulario">{{ "Respiratorias:" }}</label><input [(ngModel)]="antecedenFam.respiratorias" type="checkbox"  />
+                         </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="cuadroFormulario">
+              <label class="titulo">Padecimientos actuales</label>
+            </div>
+            </div>
+              
+        </div>
+
+       
+
+    </div>
+
+
+
+</div>

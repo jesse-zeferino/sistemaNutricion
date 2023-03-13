@@ -1,0 +1,28 @@
+<div>
+
+   
+        <div>
+            <span>Iniciar Sesion</span>
+            <form autocomplete="off">
+
+                <div>
+                    <label for="correo">Correl electronico</label>
+                <input type="email" [(ngModel)]="correo" name="correo" >
+                </div>
+        
+                <div>
+                    <label for="password">Contraseña</label>
+                <input type="password" [(ngModel)]="password" name="password">
+                </div>
+        
+                <button (click)="iniciarSesion()">Ingresar</button>
+                
+        
+            </form>
+        </div>
+        <div>
+            <span>Bienvenido </span>
+            <span>NutriSystem </span>
+        </div>
+
+</div>
